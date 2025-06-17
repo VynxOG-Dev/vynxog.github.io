@@ -7,7 +7,7 @@ const text = [
 ];
 
 let i = 0, j = 0, current = '', isDeleting = false;
-const typeSpeed = 100;
+const typeSpeed = 50;
 const target = document.querySelector(".typewriter");
 
 function type() {
