@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +7,10 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'JetBrains Mono', monospace;
@@ -16,9 +20,9 @@
       overflow-x: hidden;
       color: white;
       min-height: 100vh;
-      padding-top: 60px; /* space for nav */
+      padding-top: 60px;
     }
-    /* Background video and overlay */
+
     body::before {
       content: "";
       position: fixed;
@@ -27,6 +31,7 @@
       z-index: 10;
       pointer-events: none;
     }
+
     video.bg-video {
       position: fixed;
       top: 0;
@@ -37,7 +42,7 @@
       z-index: 5;
       filter: brightness(0.85) contrast(1.1);
     }
-    /* Sticky Navbar */
+
     nav {
       position: fixed;
       top: 0;
@@ -48,6 +53,7 @@
       z-index: 20;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
     nav ul {
       display: flex;
       justify-content: center;
@@ -56,75 +62,47 @@
       margin: 0;
       list-style: none;
     }
+
     nav a {
       color: #f472b6;
       font-weight: 600;
-      transition: color 0.3s ease;
       font-size: 1.125rem;
       text-decoration: none;
-    }
-    nav a:hover, nav a:focus {
-      color: #ec4899;
-      outline: none;
+      transition: color 0.3s ease;
     }
 
-    /* Hover for project cards */
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.4);
+    nav a:hover, nav a:focus {
+      color: #ec4899;
     }
+
     .project-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Social icons styling */
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(236, 72, 153, 0.4);
+    }
+
     .social-link {
-      position: relative;
-      display: inline-block;
       font-weight: 700;
       font-size: 1rem;
-      color: #60a5fa;
       margin-right: 1rem;
-      transition: color 0.3s ease;
-      cursor: pointer;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
+
     .social-link.youtube { color: #ef4444; }
     .social-link.linkedin { color: #3b82f6; }
     .social-link.twitter { color: #93c5fd; }
-    .social-link:hover {
-      filter: brightness(1.3);
-    }
-    .social-link::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 130%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(15, 23, 42, 0.9);
-      color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .social-link:hover::after,
-    .social-link:focus::after {
-      opacity: 1;
-    }
+    .social-link:hover { filter: brightness(1.3); }
 
-    /* Content container */
     main, section, header, footer {
       position: relative;
-      z-index: 15; /* above overlay and video */
+      z-index: 15;
       max-width: 768px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      margin: 0 auto;
+      padding: 1.5rem;
     }
 
     header {
@@ -138,7 +116,6 @@
       text-align: center;
       color: #a0aec0;
     }
-
   </style>
 </head>
 <body>
@@ -150,12 +127,12 @@
   </video>
 
   <!-- Navigation -->
-  <nav aria-label="Primary navigation">
+  <nav>
     <ul>
-      <li><a href="#about" tabindex="0">About Me</a></li>
-      <li><a href="#projects" tabindex="0">Projects</a></li>
-      <li><a href="#gifts" tabindex="0">Gifts For You</a></li>
-      <li><a href="#contact" tabindex="0">Get In Touch</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gifts">Gifts For You</a></li>
+      <li><a href="#contact">Get In Touch</a></li>
     </ul>
   </nav>
 
@@ -165,11 +142,11 @@
     <img src="458193366_1049788873446640_3660655245926059456_n.jpg" alt="VynxOG Logo" class="w-32 h-32 rounded-full my-4 border-4 border-teal-400 mx-auto" />
     <p class="text-gray-400 text-lg">Divyansh Goyal</p>
     <p class="mt-2 text-gray-400 text-xl">Digital Creator · Developer · Designer</p>
-    <div class="mt-6 space-x-6" role="list" aria-label="Social media links">
-      <a href="https://github.com/vynxog-dev" target="_blank" rel="noopener" class="social-link" data-tooltip="GitHub">GitHub</a>
-      <a href="https://youtube.com/@vynxog" target="_blank" rel="noopener" class="social-link youtube" data-tooltip="YouTube">YouTube</a>
-      <a href="https://linkedin.com/in/vynxog" target="_blank" rel="noopener" class="social-link linkedin" data-tooltip="LinkedIn">LinkedIn</a>
-      <a href="https://twitter.com/vynxogx" target="_blank" rel="noopener" class="social-link twitter" data-tooltip="X (Twitter)">X (Twitter)</a>
+    <div class="mt-6 space-x-6">
+      <a href="https://github.com/vynxog-dev" target="_blank" class="social-link">GitHub</a>
+      <a href="https://youtube.com/@vynxog" target="_blank" class="social-link youtube">YouTube</a>
+      <a href="https://linkedin.com/in/vynxog" target="_blank" class="social-link linkedin">LinkedIn</a>
+      <a href="https://twitter.com/vynxogx" target="_blank" class="social-link twitter">X (Twitter)</a>
     </div>
   </header>
 
@@ -200,19 +177,18 @@
   <section id="gifts" class="py-10">
     <h2 class="text-3xl font-semibold mb-4 text-yellow-400">Gifts For You</h2>
     <a href="minecraft-free.html" class="block bg-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-700 transition-colors project-card">
-      <h3 class="text-xl font-bold text-white mb-2">Minecraft PE/BE For Free</h3>
-      <p class="text-gray-400">Explore Free Minecraft Pocket & Bedrock Edition Links, No Virus Safe 100%.</p>
-    </p>
+      <h3 class="text-xl font-bold text-white mb-0">Minecraft PE/BE For Free</h3>
+    </a>
   </section>
 
   <!-- Get In Touch -->
   <section id="contact" class="py-10">
     <h2 class="text-3xl font-semibold mb-4 text-green-400">Get In Touch</h2>
     <p class="text-gray-300 mb-4">Feel free to reach out for collaborations, commissions, or just to say hi!</p>
-    <ul class="space-y-2">
-      <li>Email: <a href="mailto:divyanshgoyal009@gmail.com" class="text-blue-400 hover:underline">divyanshgoyal009@gmail.com</a></li>
-      <li>Telegram: <a href="https://t.me/vynxogx" class="text-blue-400 hover:underline">@vynxog</a></li>
-      <li>Fiverr: <a href="https://fiverr.com/vynxogx" class="text-blue-400 hover:underline">fiverr.com/vynxog</a></li>
+    <ul class="space-y-2 text-gray-200">
+      <li><strong>Email:</strong> <a href="mailto:divyanshgoyal009@gmail.com" class="text-blue-400 hover:underline">divyanshgoyal009@gmail.com</a></li>
+      <li><strong>Telegram:</strong> <a href="https://t.me/vynxogx" class="text-blue-400 hover:underline">@vynxog</a></li>
+      <li><strong>Fiverr:</strong> <a href="https://fiverr.com/vynxogx" class="text-blue-400 hover:underline">fiverr.com/vynxogx</a></li>
     </ul>
   </section>
 
