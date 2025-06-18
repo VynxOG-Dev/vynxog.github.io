@@ -41,6 +41,7 @@
       object-fit: cover;
       z-index: 5;
       filter: brightness(0.85) contrast(1.1);
+      display: none; /* Hide until loaded */
     }
 
     nav {
@@ -56,8 +57,9 @@
 
     nav ul {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       padding: 1rem 0;
       margin: 0;
       list-style: none;
@@ -137,12 +139,12 @@
   </nav>
 
   <!-- Header -->
-  <header>
-    <h1 class="text-5xl font-bold tracking-wide text-pink-300 mb-4">VynxOG</h1>
+  <header class="text-center px-4">
+    <h1 class="text-4xl sm:text-5xl font-bold tracking-wide text-pink-300 mb-4">VynxOG</h1>
     <img src="458193366_1049788873446640_3660655245926059456_n.jpg" alt="VynxOG Logo" class="w-32 h-32 rounded-full my-4 border-4 border-teal-400 mx-auto" />
     <p class="text-gray-400 text-lg">Divyansh Goyal</p>
     <p class="mt-2 text-gray-400 text-xl">Digital Creator · Developer · Designer</p>
-    <div class="mt-6 space-x-6">
+    <div class="mt-6 flex flex-wrap justify-center gap-4">
       <a href="https://github.com/vynxog-dev" target="_blank" class="social-link">GitHub</a>
       <a href="https://youtube.com/@vynxog" target="_blank" class="social-link youtube">YouTube</a>
       <a href="https://linkedin.com/in/vynxog" target="_blank" class="social-link linkedin">LinkedIn</a>
@@ -151,16 +153,16 @@
   </header>
 
   <!-- About Me -->
-  <section id="about" class="py-10">
-    <h2 class="text-3xl font-semibold mb-4 text-teal-400">About Me</h2>
-    <p class="text-gray-300 leading-relaxed">
+  <section id="about" class="py-10 px-4">
+    <h2 class="text-3xl font-semibold mb-4 text-teal-400 text-center sm:text-left">About Me</h2>
+    <p class="text-gray-300 leading-relaxed text-center sm:text-left">
       I'm a self-taught developer and visual enthusiast who loves customizing Linux desktops, crafting terminal setups, and creating clean web experiences. Whether it's tweaking themes or building beautiful frontends, I create with passion and precision. Always learning, always building.
     </p>
   </section>
 
   <!-- Featured Projects -->
-  <section id="projects" class="py-10">
-    <h2 class="text-3xl font-semibold mb-4 text-purple-400">Featured Projects</h2>
+  <section id="projects" class="py-10 px-4">
+    <h2 class="text-3xl font-semibold mb-4 text-purple-400 text-center sm:text-left">Featured Projects</h2>
     <ul class="space-y-4">
       <li class="bg-gray-800 p-4 rounded-xl shadow-md project-card">
         <h3 class="text-xl font-bold text-white">Arch Terminal Setup</h3>
@@ -174,8 +176,8 @@
   </section>
 
   <!-- Gifts For You -->
-  <section id="gifts" class="py-10">
-    <h2 class="text-3xl font-semibold mb-4 text-yellow-400">Gifts For You</h2>
+  <section id="gifts" class="py-10 px-4">
+    <h2 class="text-3xl font-semibold mb-4 text-yellow-400 text-center sm:text-left">Gifts For You</h2>
     <a href="minecraft-free.html" class="block bg-gray-800 p-6 rounded-xl shadow-md hover:bg-gray-700 transition-colors project-card">
       <h3 class="text-xl font-bold text-white mb-0">Minecraft PE/BE For Free</h3>
       <p class="text-gray-400">Explore Free Minecraft Pocket & Bedrock Edition Links, No Virus Safe 100%.</p>
@@ -183,10 +185,10 @@
   </section>
 
   <!-- Get In Touch -->
-  <section id="contact" class="py-10">
-    <h2 class="text-3xl font-semibold mb-4 text-green-400">Get In Touch</h2>
-    <p class="text-gray-300 mb-4">Feel free to reach out for collaborations, commissions, or just to say hi!</p>
-    <ul class="space-y-2 text-gray-200">
+  <section id="contact" class="py-10 px-4">
+    <h2 class="text-3xl font-semibold mb-4 text-green-400 text-center sm:text-left">Get In Touch</h2>
+    <p class="text-gray-300 mb-4 text-center sm:text-left">Feel free to reach out for collaborations, commissions, or just to say hi!</p>
+    <ul class="space-y-2 text-gray-200 text-center sm:text-left">
       <li><strong>Email:</strong> <a href="mailto:divyanshgoyal009@gmail.com" class="text-blue-400 hover:underline">divyanshgoyal009@gmail.com</a></li>
       <li><strong>Telegram:</strong> <a href="https://t.me/vynxogx" class="text-blue-400 hover:underline">@vynxog</a></li>
       <li><strong>Fiverr:</strong> <a href="https://fiverr.com/vynxogx" class="text-blue-400 hover:underline">fiverr.com/vynxogx</a></li>
@@ -196,6 +198,23 @@
   <footer>
     &copy; 2025 VynxOG. All rights reserved.
   </footer>
+
+  <!-- Video handling script -->
+  <script>
+    const video = document.querySelector('.bg-video');
+    video.addEventListener('canplaythrough', () => {
+      video.style.display = 'block';
+      video.play().catch(() => {
+        console.log("Autoplay failed");
+      });
+    });
+
+    video.addEventListener('error', () => {
+      console.error("Video failed to load");
+      video.style.display = 'none';
+      document.body.style.background = '#0f172a'; // fallback
+    });
+  </script>
 
 </body>
 </html>
