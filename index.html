@@ -1,53 +1,107 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VynxOG | Developer & Creator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'JetBrains Mono', monospace;
+      margin: 0;
+      min-height: 100vh;
+      position: relative;
+      color: white;
+    }
+    /* Background video fixed */
+    video.bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+    /* Dark overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* Content above video and overlay */
+    header, main, footer {
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="px-6 py-10 flex flex-col items-center min-h-screen">
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="Minecraft%20Cherry%20Blossom%20Biome.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Page content -->
   <header class="flex flex-col items-center justify-center text-center py-16 px-4">
-    <h1 class="text-5xl font-bold text-white tracking-wide">VynxOG</h1>
+    <h1 class="text-5xl font-bold text-pink-300 tracking-wide mb-4">VynxOG</h1>
     <img src="458193366_1049788873446640_3660655245926059456_n.jpg" alt="VynxOG Logo" class="w-32 h-32 rounded-full my-4 border-4 border-teal-400" />
-    <p class="text-gray-400 text-lg">Divyansh Goyal</p>
-    <p class="mt-2 text-gray-400 text-xl">Digital Creator · Developer · Designer</p>
+    <p class="text-gray-300 text-lg">Divyansh Goyal</p>
+    <p class="mt-2 text-gray-300 text-xl">Digital Creator · Developer · Designer</p>
     <div class="mt-6 space-x-4">
       <a href="https://github.com/vynxog-dev" class="text-blue-400 hover:underline">GitHub</a>
       <a href="https://youtube.com/@vynxog" class="text-red-400 hover:underline">YouTube</a>
       <a href="https://linkedin.com/in/vynxog" class="text-blue-500 hover:underline">LinkedIn</a>
       <a href="https://twitter.com/vynxogx" class="text-blue-300 hover:underline">X (Twitter)</a>
     </div>
-  </header>  <section class="px-6 py-10 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4 text-teal-400">About Me</h2>
-    <p class="text-gray-300 leading-relaxed">
-      I'm a self-taught developer and visual enthusiast who loves customizing Linux desktops, crafting terminal setups, and creating clean web experiences. Whether it's tweaking themes or building beautiful frontends, I create with passion and precision. Always learning, always building.
-    </p>
-  </section>  <section class="px-6 py-10 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4 text-purple-400">Featured Projects</h2>
-    <ul class="space-y-4">
-      <li class="bg-gray-800 p-4 rounded-xl shadow-md">
-        <h3 class="text-xl font-bold text-white">Arch Terminal Setup</h3>
-        <p class="text-gray-400">Aesthetic and powerful terminal UI setup using Kitty + Zsh + Blur with Kvantum.</p>
-      </li>
-      <li class="bg-gray-800 p-4 rounded-xl shadow-md">
-        <h3 class="text-xl font-bold text-white">Personal Portfolio</h3>
-        <p class="text-gray-400">This very site. Built with Tailwind CSS, lightweight, and beautiful.</p>
-      </li>
-    </ul>
-  </section>  <section class="px-6 py-10 max-w-3xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-4 text-green-400">Get In Touch</h2>
-    <p class="text-gray-300 mb-4">Feel free to reach out for collaborations, commissions, or just to say hi!</p>
-    <ul class="space-y-2">
-      <li>Email: <a href="mailto:divyanshgoyal009@gmail.com" class="text-blue-400 hover:underline">divyanshgoyal009@gmail.com</a></li>
-      <li>Telegram: <a href="https://t.me/vynxogx" class="text-blue-400 hover:underline">@vynxog</a></li>
-      <li>Fiverr: <a href="https://fiverr.com/vynxogx" class="text-blue-400 hover:underline">fiverr.com/vynxog</a></li>
-    </ul>
-  </section>  <footer class="text-center text-gray-500 py-6">
+  </header>  
+
+  <main class="max-w-3xl mx-auto px-6 py-10 space-y-10">
+    <section>
+      <h2 class="text-3xl font-semibold mb-4 text-pink-300">About Me</h2>
+      <p class="text-gray-300 leading-relaxed">
+        I'm a self-taught developer and visual enthusiast who loves customizing Linux desktops, crafting terminal setups, and creating clean web experiences. Whether it's tweaking themes or building beautiful frontends, I create with passion and precision. Always learning, always building.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4 text-pink-300">Featured Projects</h2>
+      <ul class="space-y-4">
+        <li class="bg-gray-800 bg-opacity-80 p-4 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold">Arch Terminal Setup</h3>
+          <p class="text-gray-300">Aesthetic and powerful terminal UI setup using Kitty + Zsh + Blur with Kvantum.</p>
+        </li>
+        <li class="bg-gray-800 bg-opacity-80 p-4 rounded-xl shadow-md">
+          <h3 class="text-xl font-bold">Personal Portfolio</h3>
+          <p class="text-gray-300">This very site. Built with Tailwind CSS, lightweight, and beautiful.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4 text-pink-300">Gifts For You</h2>
+      <a href="minecraft-free.html" class="block bg-gray-800 bg-opacity-80 p-6 rounded-xl shadow-md hover:bg-gray-700 transition-colors">
+        <h3 class="text-xl font-bold mb-2">Minecraft PE/BE For Free</h3>
+        <p class="text-gray-300">Explore Free Minecraft Pocket & Bedrock Edition Links, No Virus Safe 100%.</p>
+      </a>
+    </section>
+
+    <section>
+      <h2 class="text-3xl font-semibold mb-4 text-pink-300">Get In Touch</h2>
+      <p class="text-gray-300 mb-4">Feel free to reach out for collaborations, commissions, or just to say hi!</p>
+      <ul class="space-y-2 text-gray-300">
+        <li>Email: <a href="mailto:divyanshgoyal009@gmail.com" class="text-blue-400 hover:underline">divyanshgoyal009@gmail.com</a></li>
+        <li>Telegram: <a href="https://t.me/vynxogx" class="text-blue-400 hover:underline">@vynxog</a></li>
+        <li>Fiverr: <a href="https://fiverr.com/vynxogx" class="text-blue-400 hover:underline">fiverr.com/vynxog</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="text-center text-gray-400 py-6">
     &copy; 2025 VynxOG. All rights reserved.
   </footer>
 </body>
